@@ -13,7 +13,8 @@ import org.springframework.validation.annotation.Validated;
 import lombok.Data;
 
 @Configuration
-@PropertySource("classpath:database.properties")
+// ${envTarget:dev} : ${nameofparam:defaultvalue}
+@PropertySource("classpath:database-${envTarget:dev}.properties")
 @ConfigurationProperties(prefix = "database")
 @Validated
 @Data
